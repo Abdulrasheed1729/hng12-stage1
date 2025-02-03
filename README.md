@@ -37,7 +37,7 @@ On any bad request error we return the following format
 ### Usage
 
 ```sh
-curl -X GET https://hng12-stage0-f7pg.onrender.com/api/classify-number?=number=371
+curl -X GET https://hng12-stage1-moxi.onrender.com/api/classify-number?number=371
 ```
 
 ### Local Setup
