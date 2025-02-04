@@ -24,7 +24,7 @@ func (s *APIServer) Run() {
 
 	log.Println("JSON API server running on port: ", s.listenAddr)
 
-	mux.HandleFunc("/api/classify-number", classifyNumberHandler)
+	mux.HandleFunc("GET /api/classify-number", classifyNumberHandler)
 
 	http.ListenAndServe(s.listenAddr, mux)
 }
@@ -32,12 +32,6 @@ func (s *APIServer) Run() {
 func classifyNumberHandler(w http.ResponseWriter, r *http.Request) {
 	param := r.URL.Query().Get("number")
 	fmt.Println(param)
-
-	if r.Method != http.MethodGet {
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte("Request method not allowed"))
-		return
-	}
 
 	number, err := strconv.Atoi(param)
 
